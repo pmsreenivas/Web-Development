@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body, html {
+  /*height: 100%;*/
+  margin: 0;
+  color: #777;
+  width: 900px;
+  overflow-x: hidden;
+}
+
+.bgimg-1, .bgimg-2 {
+  position: relative;
+  opacity: 1;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  z-index: -5;
+}
+.bgimg-1 {
+  background-image: url("coffee1.jpg");
+  height: 300px;
+  width: 900px;
+  background-position: -350px -60px;
+  background-size: 1600px 1050px;
+}
+
+.bgimg-2 {
+  background-image: url("coffee2.jpg");
+  background-size: 1500px 850px;
+  background-position: -280px -20px;
+  height: 750px;
+  width: 900px;
+}
+
+.rectangle4{
+	position: relative;
+	height: 475px;
+	width: 900px;
+  	background-color: #472a7a;
+  	z-index: 10;
+}
+
+.hello{
+	position: absolute;
+	left: 107px;
+	bottom: 326px;
+  	color: white;
+  	font: 700 12px "Raleway", sans-serif;
+}
+
+.git{
+	position: absolute;
+	left: 107px;
+	top: 102px;
+  	color: #472a7a;
+  	font: 700 12px "Raleway", sans-serif;
+}
+
+.CM{
+	position: absolute;
+	left: 107px;
+	top: 130px;
+  	color: #472a7a;
+  	font: 100 35px "Raleway", sans-serif;
+}
+
+.ad1{
+	position: absolute;
+	left: 109px;
+	top: 173px;
+  	color: #472a7a;
+  	font: 500 11px "Raleway", sans-serif;
+}
+
+.ad2{
+	position: absolute;
+	left: 109px;
+	top: 190px;
+  	color: #472a7a;
+  	font: 500 11px "Raleway", sans-serif;
+}
+
+.ad3{
+	position: absolute;
+	left: 109px;
+	top: 290px;
+  	color: #472a7a;
+  	font: 500 11px "Raleway", sans-serif;
+}
+
+p {
+	position: absolute;
+	left: 110px;
+	bottom: 145px;
+	color: white;
+	font: 600 35px "Raleway", sans-serif;
+	text-align: left;
+}
+
+@font-face {
+  font-family: Raleway;
+  src: url("Raleway-Regular.ttf");
+}
+
+@font-face {
+  font-family: Helvetica;
+  src: url("Helvetica.ttc");
+}
+
+
+@font-face {
+  font-family: Times New Roman;
+  src: url("Times New Roman.ttf");
+}
+
+
+@font-face {
+  font-family: Lato;
+  src: url("Lato-Regular.ttf");
+}
+
+
+img {
+  position: absolute;
+  float: left;
+  clip: rect(10px,300px,170px,0px);
+  margin-top: 31px;
+  margin-left: 31px;
+  margin-right: 0px;
+  width: 128px;
+  height: 190px;
+}
+
+.projects_1{
+  font: 400 11px "Lato", sans-serif;
+  left: 41px;
+  top: 240px;
+  position: absolute;
+  color: white;
+}
+
+.big_words{
+  font: 900 20px "Helvetica", sans-serif;
+  left: 41px;
+  top: 265px;
+  position: absolute;
+  color: white;
+}
+
+.three_columns{
+  height: 520px;
+  width: 900px;
+  margin-top: -90px;
+  z-index: 10;
+}
+
+.rectangle1{
+  height: 520px;
+  width: 300px;
+  position: absolute;
+  background-color: #5398b9;
+}
+
+.rectangle2{
+  height: 520px;
+  width: 300px;
+  background-color: #472a7a;
+  left: 300px;
+  position: absolute;
+}
+
+.rectangle3{
+  height: 520px;
+  width: 300px;
+  background-color: #996cbf;
+  left: 600px;
+  position: absolute;
+}
+
+
+.rectangle5{
+	height: 420px;
+	width: 900px;
+  	background-color: white;
+  	position: absolute;
+  	font: 500 11px "Raleway", sans-serif;
+}
+
+.name{
+  font: italic 15px "Times New Roman", sans-serif;
+  left: 184px;
+  top: 41px;
+  position: absolute;
+  color: #472a7a;
+  width: 60px;
+}
+
+.food{
+  font: 200 35px "Helvetica", sans-serif;
+  left: 182px;
+  top: 62px;
+  position: absolute;
+  color: #472a7a;
+  width: 118px;
+}
+
+.stylist{
+  font: 700 40px "Helvetica", sans-serif;
+  left: 180px;
+  top: 94px;
+  position: absolute;
+  color: #472a7a;
+  width: 240px;
+}
+
+.portfolio_1{
+  font: 100 18px "Helvetica", sans-serif;
+  left: 180px;
+  top: 186px;
+  position: absolute;
+  color: #472a7a;
+  width: 240px;
+}
+
+.long_dash{
+  height: 4px;
+  width: 66px;
+  background-color: #472a7a;
+  position: absolute;
+  top: 150px;
+  left: 180px;
+}
+
+.container{
+  background-color: white;
+  height: 230px;
+  width: 460px;
+  position: absolute;
+  left: 240px;
+  top: 238px; 
+}
+
+.navbar{
+  overflow: hidden;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  width: 900px;
+  z-index: 20;
+}
+
+.navbar c {
+  float: left;
+  display: block;
+  color: #d5d5d5;
+  text-align: center;
+  padding: 30px 20px 15px 0px;
+  text-decoration: none;
+  font-size: 12px;
+  font-family: "Lato", sans-serif;
+}
+
+.navbar b {
+  float: left;
+  display: block;
+  color: #472a7a;
+  text-align: center;
+  padding: 25px 250px 10px 115px;
+  width: 93px;
+  text-decoration: none;
+  font: italic 100 20px "Times New Roman", sans-serif;
+}
+
+.navbar c:hover {
+  color: #472a7a;
+}
+
+.f1{
+	position: absolute;
+	background-color: white;
+	width: 347px;
+	height: 22px;
+	left: 450px;
+	top: 138px;
+}
+
+.f1 input[type=text]{
+	position: absolute;
+	color: #472a7a;
+	width: 342px;
+	height: 22px;
+	border: 1px solid #472a7a;
+}
+
+.f2{
+	position: absolute;
+	background-color: white;
+	width: 347px;
+	height: 22px;
+	left: 450px;
+	top: 168px;
+}
+
+.f2 input[type=text]{
+	position: absolute;
+	color: #472a7a;
+	width: 342px;
+	height: 22px;
+	border: 1px solid #472a7a;
+}
+
+.f3{
+	position: absolute;
+	background-color: white;
+	width: 347px;
+	height: 22px;
+	left: 450px;
+	top: 198px;
+}
+
+.f3 input[type=text]{
+	position: absolute;
+	color: #472a7a;
+	width: 342px;
+	height: 22px;
+	border: 1px solid #472a7a;
+}
+
+.f4{
+	position: absolute;
+	background-color: white;
+	width: 347px;
+	height: 90px;
+	left: 450px;
+	top: 228px;
+}
+
+.f4 input[type=text]{
+	position: absolute; 
+	color: #472a7a;
+	width: 342px;
+	height: 90px;
+	border: 1px solid #472a7a;
+}
+
+.f4 input::placeholder{
+  position: absolute;
+  padding-top: -30px;
+}
+
+form {
+  position: relative;
+}
+
+input[placeholder]{
+	color: #472a7a;
+}
+
+.f5{
+	position: absolute;
+	background-color: white;
+	width: 77px;
+	height: 26px;
+	left: 716px;
+	top: 330px;
+}
+
+.button {
+	background-color: #472a7a;
+	color: white;
+	text-align: center;
+	font: 200 italic 13px "Times New Roman", sans-serif;
+	border: none;
+	width: 77px;
+	height: 26px;
+}
+
+</style>
+</head>
+<body>
+
+  <div class="navbar">
+    <b> Migi Bell </b>
+    <c>HOME</c>
+    <c>PORTFOLIO</c>
+    <c>ABOUT ME</c>
+    <c>CONTACT ME</c>
+    
+
+</div>
+
+<div class="bgimg-2">
+  
+  <div class="container">
+    <img src="face.jpg">
+    <div class="name">Migi Bell</div>
+    <div class="food">FOOD</div> 
+    <div class="stylist">STYLIST.</div> 
+    <div class="long_dash"></div> 
+    <div class="portfolio_1">PORTFOLIO &gt</div> 
+  </div>
+
+
+</div>
+
+<div class="three_columns">
+  <div class="rectangle1"> 
+    <div class="projects_1">PROJECTS</div>
+    <div class="big_words">PROJECTS &gt</div>
+
+  </div>
+  <div class="rectangle2"> 
+    <div class="projects_1">PROJECTS</div>
+    <div class="big_words">EDITORIAL &gt</div>
+
+  </div>
+  <div class="rectangle3"> 
+    <div class="projects_1">PROJECTS</div>
+    <div class="big_words">INNOVATIVE &gt</div>
+
+  </div>
+</div>
+
+
+<div class="bgimg-1">
+  
+</div>
+
+<div class="rectangle4">
+	<div class="hello">- Hello -</div>
+	<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+</div>
+
+<div class="rectangle5">
+	<div class="git">- Get In Touch -</div>
+	<div class="CM">Contact Me</div>
+	<div class="ad1">700 Morey Francois Street, San Francisco, CA 94148</div>
+	<div class="ad2">info&#64lorem.com | Tel: 123-555-1212</div>
+	<div class="ad3">&#169 2023 by Migi Bell.</div>
+	<div class="f1">
+		<form>
+			<input type="text" name="name" placeholder="  Name" >
+		</form>
+	</div>
+	<div class="f2">
+		<form>
+			<input type="text" name="email" placeholder="  Email" >
+		</form>
+	</div>
+	<div class="f3">
+		<form>
+			<input type="text" name="phone" placeholder="  Phone" >
+		</form>
+	</div>
+	<div class="f4">
+		<form>
+			<input type="text" name="message" placeholder="  Type your message here..." >
+		</form>
+	</div>
+	<div class="f5">
+		<form>
+			<button class="button">Submit</button>
+		</form>
+	</div>
+</div>
+
+
+</body>
+</html>
