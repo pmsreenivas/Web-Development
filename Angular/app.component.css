@@ -1,0 +1,682 @@
+@media (min-width: 576px) {
+	#fcity {
+      margin-left: 3.2rem;
+  	}
+  	#fstate{
+  		margin-left: 2.7rem;
+  	}
+  #fstreet{
+  	margin-left: 2.3rem;
+  }
+
+  #cl{
+  	margin-left: 3rem;
+  }
+  #searchBtn{
+	width: 5.7rem;
+	margin-left: 3.5rem;
+	height: 2.3rem;
+	}
+	#clearBtn{
+		width: 5.7rem;
+		margin-left: 10.5rem;
+		height: 2.3rem;
+		margin-top: -2.3rem; 
+	}
+	#fcard{
+		height: 400px;
+	}
+	#fif0, #fif1{
+		margin-left: 11.5rem;
+		margin-top: -1rem;
+	}
+	::ng-deep .dropdown-menu {
+  min-width: 48% !important;
+}
+
+::ng-deep typeahead-container {
+  width: 48% !important;
+}
+
+#Current_City{
+	font-size: 4vw;
+	top: 3vw;
+	left: 1rem;
+	position: absolute;
+}
+
+#Current_SS{
+	height:15vw;
+	width:15vw;
+	position: absolute;
+	right: 1vw;
+	top: 8vw;
+	}
+
+	#Current_TZ{
+	font-size: 4vw;
+	color: #2f4f4f;
+	top: 7vw;
+	left: 1rem;
+	position: absolute;
+	}
+
+		#Current_Tmp{
+	font-size: 4vw;
+	top: 15vw;
+	left: 1rem;
+	position: absolute;
+	}
+
+		#Current_Sum{
+	font-size: 2vw;
+	top: 21vw;
+	left: 1rem;
+	position: absolute;
+	}
+
+	#CurrentCard{
+	height: 470px;
+	}
+
+	#Current_h_ctr{ /*big*/
+		height: 60px;
+		width: 60px;
+		top: 85%;
+		position: absolute;
+		left: 0%;
+	}
+
+			#Current_h_img{
+		height: 30px;
+		width: 30px;
+		bottom: 2rem;
+		position: absolute;
+		left: 1rem;
+	}
+
+				#Current_h_txt{
+		top: 2rem;
+		position: absolute;
+		left: 1rem;
+	}
+
+	#Current_p_ctr{
+		height: 60px;
+		width: 60px;
+		top: 85%;
+		position: absolute;
+		left: 20%
+	}
+
+			#Current_p_img{
+		height: 30px;
+		width: 30px;
+		bottom: 2rem;
+		position: absolute;
+		left: 1rem;
+	}
+
+				#Current_p_txt{
+		top: 2rem;
+		position: absolute;
+		left: 0.1rem;
+	}
+
+	#Current_w_ctr{
+		height: 60px;
+		width: 60px;
+		top: 85%;
+		position: absolute;
+		left: 38%;
+	}
+
+			#Current_w_img{
+		height: 30px;
+		width: 30px;
+		bottom: 2rem;
+		position: absolute;
+		left: 1rem;
+	}
+
+				#Current_w_txt{
+		top: 2rem;
+		position: absolute;
+		left: 0.5rem;
+	}
+
+	#Current_v_ctr{
+		height: 60px;
+		width: 60px;
+		top: 85%;
+		position: absolute;
+		left: 50%;
+	}
+
+			#Current_v_img{
+		height: 30px;
+		width: 30px;
+		bottom: 2rem;
+		position: absolute;
+		left: 1rem;
+	}
+
+				#Current_v_txt{
+		top: 2rem;
+		position: absolute;
+		left: 0.5rem;
+	}
+
+#Current_c_ctr{
+		height: 60px;
+		width: 60px;
+		top: 85%;
+		position: absolute;
+		left: 67%;
+	}
+
+			#Current_c_img{
+		height: 30px;
+		width: 30px;
+		bottom: 2rem;
+		position: absolute;
+		left: 1rem;
+	}
+
+				#Current_c_txt{
+		top: 2rem;
+		position: absolute;
+		left: 0.5rem;
+	}
+
+	#Current_o_ctr{
+		height: 60px;
+		width: 60px;
+		top: 85%;
+		position: absolute;
+		left: 82%;
+	}
+
+			#Current_o_img{
+		height: 30px;
+		width: 30px;
+		bottom: 2rem;
+		position: absolute;
+		left: 1rem;
+	}
+
+				#Current_o_txt{
+		top: 2rem;
+		position: absolute;
+		left: 0.5rem;
+	}
+
+	#li_Current-tab, #li_Hourly-tab, #li_Weekly-tab{
+		width: 5rem;
+		
+	}
+
+
+
+
+.mo-border{
+  border-color: #d3d3d3;
+}
+
+	#Modal_City{
+	font-size: 35px;
+	top: 5px;
+	left: 2rem;
+	position: absolute;
+}
+
+#Modal_Tmp{
+position: absolute;
+top: 50px;
+left: 2rem;
+font-size: 35px;
+}
+
+#Modal_Sum{
+position: absolute;
+top: 100px;
+left: 2rem;
+font-size: 15px;
+}
+
+.modal-header{
+background-color: #6d91a9;
+
+}
+
+.modal-body{
+background-color: #9ad1f1;
+height: 140px;
+}
+
+.modal-footer{
+background-color: #9ad1f1;
+height: 155px;
+}
+
+#Modal_icon{
+height: 70px;
+width: 70px;
+position: absolute;
+left: 350px;
+top: 40px;
+}
+
+#Modal_P{
+position: absolute;
+left: 250px;
+top: 230px;
+}
+
+#Modal_C{
+position: absolute;
+left: 245px;
+top: 255px;
+}
+
+#Modal_W{
+position: absolute;
+left: 245px;
+top: 280px;
+}
+
+#Modal_H{
+position: absolute;
+left: 245px;
+top: 305px;
+}
+
+#Modal_V{
+position: absolute;
+left: 245px;
+top: 330px;
+}
+
+
+} /* end of main close big*/
+@media (max-width: 575px){
+	#cl{
+		margin-left: 0.1rem;
+	}
+	#clt{
+		margin-left: 1.2rem;
+		margin-top: 0.3rem;
+	}
+	  #searchBtn{
+		width: 5.5rem;
+		margin-left: .5rem;
+		height: 2.3rem;
+	}
+	#clearBtn{
+		width: 5.7rem;
+		margin-left: 7.5rem;
+		height: 2.3rem;
+		margin-top: -2.3rem; 
+	}
+	#fcard{
+		height: 500px;
+	}
+		::ng-deep .dropdown-menu {
+  		min-width: 91% !important;
+	}
+
+	::ng-deep typeahead-container {
+ 	 width: 91% !important;
+	}
+	
+	#Current-tab, #Hourly-tab, #Weekly-tab{
+		letter-spacing: 0.5px;
+	}
+
+	#Current_City{
+	font-size: 4vw;
+	top: 3vw;
+	left: 2rem;
+	position: absolute;
+}
+
+	#Current_SS{
+	height:25vw;
+	width:25vw;
+	position: absolute;
+	right: 2vw;
+	top: 12vw;
+	}
+
+	#Current_TZ{
+	font-size: 4vw;
+	color: #2f4f4f;
+	top: 10vw;
+	left: 2rem;
+	position: absolute;
+	}
+
+			#Current_Tmp{
+	font-size: 5vw;
+	top: 20vw;
+	left: 2rem;
+	position: absolute;
+	}
+
+			#Current_Sum{
+	font-size: 4vw;
+	top: 32vw;
+	left: 2rem;
+	position: absolute;
+	}
+
+	#CurrentCard{
+	height: 400px;
+	}
+
+		#Current_h_ctr{ /*small*/
+		height: 60px;
+		width: 30px;
+		bottom: 1rem;
+		position: absolute;
+		left: 1%;
+	}
+
+		#Current_h_img{
+		height: 30px;
+		width: 30px;
+		bottom: 2rem;
+		position: absolute;
+		left: -0.2rem;
+	}
+
+					#Current_h_txt{
+		top: 2rem;
+		position: absolute;
+		left: -0.3rem;
+	}
+
+		#Current_p_ctr{
+		height: 60px;
+		width: 30px;
+		bottom: 1rem;
+		position: absolute;
+		left: 18%;
+	}
+
+		#Current_p_img{
+		height: 30px;
+		width: 30px;
+		bottom: 2rem;
+		position: absolute;
+		left: -0.2rem;
+	}
+
+					#Current_p_txt{
+		top: 2rem;
+		position: absolute;
+		left: -0.8rem;
+	}
+
+	#Current_w_ctr{
+		height: 60px;
+		width: 30px;
+		bottom: 1rem;
+		position: absolute;
+		left: 35%;
+	}
+
+		#Current_w_img{
+		height: 30px;
+		width: 30px;
+		bottom: 2rem;
+		position: absolute;
+		left: -0.2rem;
+	}
+
+					#Current_w_txt{
+		top: 2rem;
+		position: absolute;
+		left: -0.4rem;
+	}
+
+	#Current_v_ctr{
+		height: 60px;
+		width: 30px;
+		bottom: 1rem;
+		position: absolute;
+		left: 52%;
+	}
+
+		#Current_v_img{
+		height: 30px;
+		width: 30px;
+		bottom: 2rem;
+		position: absolute;
+		left: -0.2rem;
+	}
+
+					#Current_v_txt{
+		top: 2rem;
+		position: absolute;
+		left: -0.4rem;
+	}
+
+	#Current_c_ctr{
+		height: 60px;
+		width: 30px;
+		bottom: 1rem;
+		position: absolute;
+		left: 69%;
+	}
+
+		#Current_c_img{
+		height: 30px;
+		width: 30px;
+		bottom: 2rem;
+		position: absolute;
+		left: -0.2rem;
+	}
+
+					#Current_c_txt{
+		top: 2rem;
+		position: absolute;
+		left: -0.4rem;
+	}
+
+		#Current_o_ctr{
+		height: 60px;
+		width: 30px;
+		bottom: 1rem;
+		position: absolute;
+		left: 86%;
+	}
+
+		#Current_o_img{
+		height: 30px;
+		width: 30px;
+		bottom: 2rem;
+		position: absolute;
+		left: -0.2rem;
+	}
+
+					#Current_o_txt{
+		top: 2rem;
+		position: absolute;
+		left: -0.5rem;
+	}
+
+	#li_Current-tab, #li_Hourly-tab, #li_Weekly-tab{
+		width: 18vw;
+		
+	}
+
+	#Current-tab{
+		margin-left: -1.3rem;
+		font-size: 12px;
+	}
+	#Hourly-tab{
+		margin-left: -1rem;
+		font-size: 12px;
+	}
+	#Weekly-tab{
+		margin-left: -0.5rem;
+		font-size: 12px;
+	}
+
+
+	.mo-border{
+  border-color: #d3d3d3;
+}
+
+	#Modal_City{
+	font-size: 35px;
+	top: 5px;
+	left: 2rem;
+	position: absolute;
+}
+
+#Modal_Tmp{
+position: absolute;
+top: 50px;
+left: 2rem;
+font-size: 35px;
+}
+
+#Modal_Sum{
+position: absolute;
+top: 100px;
+left: 2rem;
+font-size: 15px;
+}
+
+.modal-header{
+background-color: #6d91a9;
+
+}
+
+.modal-body{
+background-color: #9ad1f1;
+height: 140px;
+}
+
+.modal-footer{
+background-color: #9ad1f1;
+height: 155px;
+}
+
+#Modal_icon{
+height: 70px;
+width: 70px;
+position: absolute;
+left: 230px;
+top: 40px;
+}
+
+#Modal_P{
+position: absolute;
+left: 2rem;
+top: 230px;
+}
+
+#Modal_C{
+position: absolute;
+left: 2rem;
+top: 255px;
+}
+
+#Modal_W{
+position: absolute;
+left: 2rem;
+top: 280px;
+}
+
+#Modal_H{
+position: absolute;
+left: 2rem;
+top: 305px;
+}
+
+#Modal_V{
+position: absolute;
+left: 2rem;
+top: 330px;
+}
+
+
+
+} /* end of main close small*/
+#fif0, #fif1{
+	color: red;
+}
+
+.nav-pills .nav-item .nav-link:not(.active) {
+    background-color: white;
+    color: grey;
+}
+
+
+.nav-pills .nav-item .nav-link {
+    background-color: #6d91a9;
+    color: white;
+}
+
+.nav-tabs .nav-item .nav-link:not(.active) {
+    background-color: white;
+    color: black;
+}
+
+
+.nav-tabs .nav-item .nav-link {
+    background-color: white;
+    color: grey;
+}
+
+#fcard{
+	box-shadow: 5px 5px #dddddd;
+}
+
+#results_container{
+	margin-top: 5rem;
+}
+#buttons_container{
+	margin-top: 0.5rem;
+	width: 7rem;
+	height: 2rem;
+}
+#star{
+	margin-left: 2.5rem;
+	color: black;
+	margin-bottom: 10rem;
+	position: absolute;
+	cursor: pointer;
+	
+}
+#star2{
+	margin-left: 2.5rem;
+	color: #fff3cd;
+	margin-bottom: 10rem;
+	position: absolute;
+	cursor: pointer;
+	
+}
+#tweet_button{
+	height: 2rem;
+	width: 2rem;
+	margin-bottom: 1rem;
+	position: absolute;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

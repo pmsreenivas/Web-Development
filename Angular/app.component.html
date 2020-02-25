@@ -1,0 +1,342 @@
+<div class="card shadow-lg mx-auto col-sm-8 col-11 mt-2 " style="background-color: #6d91a9;" id="fcard" >
+	<h3 class="text-white mx-auto pt-4">Weather Search</h3>
+<!--<form [formGroup] = "formdata" (ngSubmit) = "onClickSubmit(formdata.value)">-->
+<div class="form-group">
+	<div class="form-inline mt-3">
+    	<label for="fstreet" class="text-white px-sm-5">Street <code class="align-top"><sup>*</sup></code></label>
+    	<input type="text" class="form-control col-sm-6 px-sm-3" id="fstreet" placeholder="Enter Street Name" name="fstreet"   (blur) = "blurform(0,str.value)" #str (keyup) = "validate(str.value, cit.value, sta.value); blurform(0,str.value)" [(ngModel)]="fstreet2">
+  </div>
+</div>
+    	<div id="fif0" *ngIf="show0">Please enter a street.</div>
+
+  <div class="form-group">
+  <div class="form-inline mt-1">
+    	<label for="fcity" class="text-white px-sm-5">City <code class="align-top"><sup>*</sup></code></label>
+
+
+    	<input type="text"  class="form-control col-sm-6 px-sm-3" id="fcity" placeholder="Enter City Name" name="fcity"   (blur) = "blurform(1,cit.value)" #cit (keyup) = "validate(str.value, cit.value, sta.value); blurform(1,cit.value); findcities(cit.value)"  [ngbTypeahead]="acpl" [(ngModel)]="fcity2">
+
+
+  </div>
+</div>
+    	<div id="fif1" *ngIf="show1">Please enter a city.</div>
+
+<div class="form-group">
+  <div class="form-inline mt-1">
+    	<label for="fstate" class="text-white px-sm-5">State <code class="align-top"><sup>*</sup></code></label>
+  		<select id="fstate" class="form-control col-sm-4 px-sm-3" name="fstate"  #sta (change) = "validate(str.value, cit.value, sta.value)" [(ngModel)]="fstate2">
+  					<option value="Select State" selected>Select State</option>
+  			 		<option value="Alabama">Alabama</option>
+					<option value="Alaska">Alaska</option>
+					<option value="Arizona">Arizona</option>
+					<option value="Arkansas">Arkansas</option> 
+					<option value="California">California</option> 
+					<option value="Colorado">Colorado</option> 
+					<option value="Connecticut">Connecticut</option> 
+					<option value="Delaware">Delaware</option> 
+					<option value="District Of Columbia">District Of Columbia</option> 
+					<option value="Florida">Florida</option> 
+					<option value="Georgia">Georgia</option> 
+					<option value="Hawaii">Hawaii</option> 
+					<option value="Idaho">Idaho</option> 
+					<option value="Illinois">Illinois</option> 
+					<option value="Indiana">Indiana</option> 
+					<option value="Iowa">Iowa</option> 
+					<option value="Kansas">Kansas</option> 
+					<option value="Kentucky">Kentucky</option> 
+					<option value="Louisiana">Louisiana</option> 
+					<option value="Maine">Maine</option> 
+					<option value="Maryland">Maryland</option> 
+					<option value="Massachusetts">Massachusetts</option> 
+					<option value="Michigan">Michigan</option> 
+					<option value="Minnesota">Minnesota</option> 
+					<option value="Mississippi">Mississippi</option> 
+					<option value="Missouri">Missouri</option> 
+					<option value="Montana">Montana</option> 
+					<option value="Nebraska">Nebraska</option> 
+					<option value="Nevada">Nevada</option> 
+					<option value="New Hampshire">New Hampshire</option> 
+					<option value="New Jersey">New Jersey</option> 
+					<option value="New Mexico">New Mexico</option> 
+					<option value="New York">New York</option> 
+					<option value="North Carolina">North Carolina</option> 
+					<option value="North Dakota">North Dakota</option>
+					<option value="Ohio">Ohio</option> 
+					<option value="Oklahoma">Oklahoma</option> 
+					<option value="Oregon">Oregon</option>
+					<option value="Pennsylvania">Pennsylvania</option>
+					<option value="Rhode Island">Rhode Island</option>
+					<option value="South Carolina">South Carolina</option> 
+					<option value="South Dakota">South Dakota</option>
+					<option value="Tennessee">Tennessee</option> 
+					<option value="Texas">Texas</option>
+					<option value="Utah">Utah</option>
+					<option value="Vermont">Vermont</option> 
+					<option value="Virginia">Virginia</option> 
+					<option value="Washington">Washington</option> 
+					<option value="West Virginia">West Virginia</option> 
+					<option value="Wisconsin">Wisconsin</option> 
+					<option value="Wyoming">Wyoming</option>   
+			</select>
+			<br>
+		
+  </div> 
+</div>
+<div class="form-group">
+<div class="form-inline">
+	<input class="form-check-input px-sm-5" type="checkbox" id="cl" (change) = "boxClick()" [(ngModel)]="cl2"><span class="text-white" id="clt" >Current location</span>
+</div>	
+</div>
+
+
+	<button disabled type="button" class="btn btn-md" id="searchBtn" (click) = "searchClick(str.value, cit.value, sta.value)" #searchBtn>
+          <span class="fa fa-search" style="color:grey" ></span><span style="color:grey"> Search</span>
+        </button>
+
+
+
+        <button type="button" class="btn btn-md" id="clearBtn" (click) = "clearClick()" >
+		<i class="material-icons" style="color:grey; margin-left: -3rem">clear_all</i><div style="color:grey; margin-top:-1.9rem;margin-left: 1rem"> Clear</div>
+        </button>
+
+<!--</form>-->
+
+</div>
+
+<!-- end of blue form -->
+<ul class="nav nav-pills justify-content-center mt-4" id="pills-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active border border-dark" id="pills-Results-tab" data-toggle="pill" href="#pills-Results" role="tab" aria-controls="pills-Results" aria-selected="true">Results</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link border border-dark ml-3" id="pills-Favorites-tab" data-toggle="pill" href="#pills-Favorites" role="tab" aria-controls="pills-Favorites" aria-selected="false">Favorites</a>
+  </li>
+ 
+</ul>
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-Results" role="tabpanel" aria-labelledby="pills-Results-tab"> <!--Results Tab Starts-->
+    <div class="card mx-auto col-sm-11 col-11 mt-2" id="ivcard" #ivcard *ngIf="invalid" style="background-color: #fff3cd;">
+    <div class="card-body">Invalid Address.</div>
+  </div>
+  <div class="progress col-sm-9 col-11 mx-auto mt-5" id="pbar" #pbar *ngIf="prbar">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:50%"></div>
+  </div>
+  	<div class="container-fluid" id="results_container" style="display: none" #results_container>
+  	<div class = "float-right">
+  		<div class="container" id="buttons_container" >
+  		<a href="{{twitter_str}}" target="_blank">	<img src="http://csci571.com/hw/hw8/Images/Twitter.png" id="tweet_button"></a>
+  	<i class="material-icons" id="star" *ngIf="nofav" (click)="star()">star_border</i>
+    <i class="material-icons" id="star2" *ngIf="fav" (click)="star()">star</i>
+
+
+  </div>
+  </div> 
+  	<ul class="nav nav-tabs" id="subTabs" role="tablist">
+  <li class="nav-item" id="li_Current-tab">
+    <a class="nav-link active" id="Current-tab" data-toggle="tab" href="#Current" role="tab" aria-controls="Current" aria-selected="true" (click) = "curren()" #CurTab>Current</a>
+  </li>
+  <li class="nav-item" id="li_Hourly-tab">
+    <a class="nav-link" id="Hourly-tab" data-toggle="tab" href="#Hourly" role="tab" aria-controls="Hourly" aria-selected="false" (click) = "hourl()" #HTab>Hourly</a>
+  </li>
+  <li class="nav-item" id="li_Weekly-tab">
+    <a class="nav-link" id="Weekly-tab" data-toggle="tab" href="#Weekly" role="tab" aria-controls="contact" aria-selected="false" (click) = "weekl()" #WTab>Weekly</a>
+  </li>
+</ul>
+<div class="tab-content" id="subTabContent">
+  <div class="tab-pane fade show active" id="Current" role="tabpanel" aria-labelledby="Current-tab" #CurPane> <!--Current Tab Starts-->
+<div class="card mx-auto col-sm-7 col-11 mt-3 border border-dark" style="background-color: #9ad1f1;" id="CurrentCard" >
+  <div id="Current_City" #Current_City>Seattle</div>
+  <div id="Current_TZ" #Current_TZ>America/Los_Angeles</div>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Seal_of_California.svg/2000px-Seal_of_California.svg.png" id="Current_SS" #Current_SS>
+
+  <div id="Current_Tmp" #Current_Tmp>75 &#176; F</div>
+  <div id="Current_Sum" #Current_Sum>Clear</div>
+
+  <div class="container " id="Current_h_ctr">
+  <img placement="top" ngbTooltip="Humidity" src="https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-16-512.png" id="Current_h_img">
+  <div id="Current_h_txt" #Current_h_txt>0.34</div>
+  </div>
+
+  <div class="container " id="Current_p_ctr">
+  <img placement="top" ngbTooltip="Pressure" src="https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-25-512.png" id="Current_p_img">
+  <div id="Current_p_txt" #Current_p_txt>1011.3</div>
+  </div>
+
+<div class="container " id="Current_w_ctr">
+  <img placement="top" ngbTooltip="WindSpeed" src="https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-27-512.png" id="Current_w_img">
+  <div id="Current_w_txt" #Current_w_txt>4.08</div>
+  </div>
+
+  <div class="container " id="Current_v_ctr" >
+  <img placement="top" ngbTooltip="Visibility" src="https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-30-512.png" id="Current_v_img" >
+  <div id="Current_v_txt" #Current_v_txt>4.084</div>
+  </div>
+
+<div class="container " id="Current_c_ctr">
+  <img placement="top" ngbTooltip="CloudCover" src="https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-28-512.png" id="Current_c_img">
+  <div id="Current_c_txt" #Current_c_txt>0.074</div>
+  </div>
+
+  <div class="container " id="Current_o_ctr">
+  <img placement="top" ngbTooltip="Ozone" src="https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-24-512.png" id="Current_o_img">
+  <div id="Current_o_txt" #Current_o_txt>282.5</div>
+  </div>
+
+
+  </div>
+</div><!--Current Tab Ends-->
+  <div class="tab-pane fade" id="Hourly" role="tabpanel" aria-labelledby="Hourly-tab" #HPane><!--Hourly Tab Starts-->
+  <select class="my-5 col-sm-4" #pars (change) = "graphChange(pars.value)">
+  					<option value="Temperature" selected>Temperature</option>
+  			 		<option value="Pressure">Pressure</option>
+					<option value="Humidity">Humidity</option>
+					<option value="Ozone">Ozone</option>
+					<option value="Visibility">Visibility</option> 
+					<option value="Wind Speed">Wind Speed</option> 
+			</select>
+			  <div id="tchartc" style="display: block" #tchartc>
+          <div>
+    <canvas baseChart 
+            [datasets]="TChartData"
+            [labels]="barChartLabels"
+            [options]="TChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            [colors]="barChartColors" >
+
+    </canvas>
+  </div>
+  </div>
+
+  <div id="pchartc" style="display: none" #pchartc>
+          <div>
+    <canvas baseChart 
+            [datasets]="PChartData"
+            [labels]="barChartLabels"
+            [options]="PChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            [colors]="barChartColors" >
+
+    </canvas>
+  </div>
+  </div>
+
+   <div id="hchartc" style="display: none" #hchartc>
+          <div>
+    <canvas baseChart 
+            [datasets]="HChartData"
+            [labels]="barChartLabels"
+            [options]="HChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            [colors]="barChartColors" >
+
+    </canvas>
+  </div>
+  </div>
+
+  <div id="ochartc" style="display: none" #ochartc>
+          <div>
+    <canvas baseChart 
+            [datasets]="OChartData"
+            [labels]="barChartLabels"
+            [options]="OChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            [colors]="barChartColors" >
+
+    </canvas>
+  </div>
+  </div>
+
+   <div id="vchartc" style="display: none" #vchartc>
+          <div>
+    <canvas baseChart 
+            [datasets]="VChartData"
+            [labels]="barChartLabels"
+            [options]="VChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            [colors]="barChartColors" >
+
+    </canvas>
+  </div>
+  </div>
+
+    <div id="wchartc" style="display: none" #wchartc>
+          <div>
+    <canvas baseChart 
+            [datasets]="WChartData"
+            [labels]="barChartLabels"
+            [options]="WChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            [colors]="barChartColors" >
+
+    </canvas>
+  </div>
+  </div> 
+
+
+</div><!--Hourly Tab Ends-->
+  <div class="tab-pane fade" id="Weekly" role="tabpanel" aria-labelledby="Weekly-tab" #WPane ><!--Weekly Tab Starts-->
+  <div id="chartContainer" style="height: 370px; width: 100vw" data-toggle="modal" data-target="#myModal"></div>
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header" >
+          <h4 class="modal-title" id="Modal_title" #Modal_title>5/10/2019</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body" >
+           <div id="Modal_City" #Modal_City>Seattle</div>
+             <div id="Modal_Tmp" #Modal_Tmp>75 &#176; F</div>
+            <div id="Modal_Sum" #Modal_Sum>Clear</div>
+      <img id="Modal_icon" #Modal_icon src="https://cdn3.iconfinder.com/data/icons/weather-344/142/sun-512.png">
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer mo-border" >
+          <div id="Modal_P" #Modal_P>Precipitation: 0</div>
+          <div id="Modal_C" #Modal_C>Chance of Rain: 0 %</div>
+         <div id="Modal_W" #Modal_W>Wind Speed: 1.58 mph</div>
+           <div id="Modal_H" #Modal_H>Humidity: 73%</div>
+         <div id="Modal_V" #Modal_V>Visibility: 5.77 miles</div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div><!--Weekly Tab Ends-->
+</div>
+</div>
+
+  </div> <!--Results Tab Ends-->
+  <div class="tab-pane fade" id="pills-Favorites" role="tabpanel" aria-labelledby="pills-Favorites-tab">  <!--Favorites Tab Starts-->
+  <p style="text-align: center;">I have not implemented the favorites</p>
+</div> <!--Favorites Tab Ends-->
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
