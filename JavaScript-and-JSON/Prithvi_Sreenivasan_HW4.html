@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			body{
+				font-family: Times New Roman;
+			}
+			h3{
+				margin-top: 160px;
+			}
+			input[type=submit]{
+				margin-top: 20px;
+				background-color: #e7e7e7;
+				border-radius: 4px;
+				border-color: #e7e7e7;
+				font: bold 500;
+			}
+		</style>
+		<script type="text/javascript">
+			function viewJSON(what) { 
+				var URL = what.URL.value;
+				function loadJSON(url) {
+					var xmlhttp=new XMLHttpRequest();
+					xmlhttp.open("GET",url,false);
+					xmlhttp.send();
+					if(xmlhttp.status == 200){
+						jsonObj= JSON.parse(xmlhttp.responseText);
+						return jsonObj;
+					} else {
+						window.alert("Please enter something in the form");
+						return false;
+					}
+				}
+				if(URL == ""){
+					window.alert("Please enter something in the form");
+					return;
+				}
+				try{
+					jsonObj = loadJSON(URL);
+				} catch(error){
+					window.alert("The JSON file does not exist");
+				}
+				jsonObj.onload=generateHTML(jsonObj);
+				var b = jsonObj.onload;
+				if(b == false) {
+					return;
+				} 
+				else{
+					hWin = window.open("", "Assignment4", "height=900,width=1500"); 
+					hWin.document.write(html_text);
+					hWin.document.close();
+				}
+			}
+			function generateHTML(jsonObj) {
+				root=jsonObj.DocumentElement;
+				html_text="<html><head><title>JSON Parse Result</title>"; 
+				html_text += "<style>" + "\n";
+				html_text += "td { \n height: 50px; \n } </style> \n";
+				html_text += " </head><bo" + "dy>";
+				html_text+="<table border='2' style=\"width:100%\">";
+				if(typeof(jsonObj.Mainline.Table.Header) == 'undefined' || typeof(jsonObj.Mainline.Table.Row) == 'undefined'){
+					window.alert("The JSON file has no car manufacturers");
+					return false;
+				}
+				var array_of_headers=jsonObj.Mainline.Table.Header.Data; 
+				html_text+="<tbody>";
+				html_text+="<tr>"; 
+				var w = [3, 7, 52, 6, 17, 15];
+				for(i=0;i<array_of_headers.length;i++) {
+					var header=array_of_headers[i]; 
+					html_text+="<th width =" + w[i] + "%>"+header+"</th>";
+				}
+				var array_of_cars = jsonObj.Mainline.Table.Row;
+				html_text+="</tr>";
+				for(i=0;i<array_of_cars.length;i++) {
+					var carObj = array_of_cars[i]; 
+					html_text+="<tr>"; 
+					var car_keys = Object.keys(carObj); 
+					for(j=0;j<car_keys.length;j++) {
+						var prop = car_keys[j];
+						if(carObj[prop] == "" || carObj[prop] == null || typeof(carObj[prop]) == "undefined"){
+							html_text += "<td></td>";
+							continue;
+						} 
+						if(prop == "Rank" || prop == "Group" || prop == "Vehicles"){
+							html_text += "<td>"+carObj[prop]+"</td>";
+						} 
+						else if(prop == "HomePage"){
+							html_text +=  "<td><a href=\"" + carObj[prop] + "\">" + carObj[prop] + "</a></td>"; 
+						}
+						else if(prop == "Logo"){
+							html_text +=  "<td><img src=\"" + carObj[prop] + "\"></td>";
+						}
+						else if(prop == "Hubs"){
+							var hub = carObj[prop];
+							var hub_key = Object.keys(hub);
+							var hub_array = hub[hub_key[0]];
+							if(hub_array.length == 0){
+								html_text += "<td></td>";
+								continue;
+							}
+							for(k=0;k<hub_array.length;k++){
+								if(k==0){
+									html_text += "<td><ul><li><b>" + hub_array[k] + "</b></li>";
+								}
+								else{
+									html_text += "<li>" + hub_array[k] + "</li>";
+								}
+							}
+							html_text += "</ul></td>"; 
+						}
+					}
+					html_text+="</tr>"; 
+				}
+				html_text+="</tbody>"; 
+				html_text+="</table>";
+				html_text+="</bo" + "dy></html>";
+				return true;
+			}
+			
+
+		</script>
+	</head>
+
+	<body>
+		<center>
+			<h3> Enter URL for largest manufacturers by production (2017) List JSON File </h3>
+			<form name="myform" method="POST" id="location">
+				<input type="text" name="URL" maxlength="255" size="24" required>
+				<br />
+				<input type="submit" name="submit" value="Submit Query" onclick="viewJSON(this.form)">
+			</form>
+		</center>
+	</body>
+
+</html>
